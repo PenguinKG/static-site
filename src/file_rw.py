@@ -38,7 +38,7 @@ def generate_page(from_path: str, template_path: str, dest_path:str, basepath:st
     title = extract_title(mdcontents)
 
     semifinal_page = template_contents.replace("{{ Title }}", title).replace("{{ Content }}", html_string)
-    final_page = semifinal_page.replace("href=\"/", f"href={basepath}").replace("src=\"/", f"src={basepath}")
+    final_page = semifinal_page.replace("href=\"/", f"href=\"{basepath}").replace("src=\"/", f"src=\"{basepath}").replace("href=/", f"href={basepath}").replace("src=/", f"src={basepath}")
     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
     with open(dest_path, "w") as dest_file:
         dest_file.write(final_page)
