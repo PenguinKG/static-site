@@ -10,6 +10,6 @@ if len(sys.argv) >= 2:
 
 def main() -> None:
 
-    copy_files("./static", "./public")
+    copy_files("./static", "./docs")
     generate_pages_recursive("content/", "template.html", "docs/", basepath)
 main()
